@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Service Queue Management System</title>
+  <meta name="description" content="A student service queue app demonstrating the FIFO queue data structure.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">DATA STRUCTURES PROJECT</p>
+      <h1>Student Service Queue Management System</h1>
+      <p class="subtitle">A practical demonstration of the Queue data structure and FIFO (First In, First Out).</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro panel">
+      <h2>How a queue works</h2>
+      <p>A queue follows the <strong>First In, First Out (FIFO)</strong> principle. The first student added is the first student served. New students join at the rear, while service takes place at the front.</p>
+      <div class="flow" aria-label="Queue flow from front to rear">
+        <span class="flow-label">FRONT · SERVED FIRST</span>
+        <div class="flow-items"><span>Student A</span><span>Student B</span><span>Student C</span></div>
+        <span class="flow-label">REAR · NEW ARRIVALS JOIN HERE</span>
+      </div>
+    </section>
+
+    <div class="columns">
+      <section class="panel">
+        <h2>Add a student</h2>
+        <form id="student-form">
+          <label for="student-name">Student name</label>
+          <input id="student-name" name="student-name" maxlength="60" placeholder="e.g. Ama Mensah" required>
+          <label for="service">Service required</label>
+          <input id="service" name="service" maxlength="80" placeholder="e.g. Registration assistance" required>
+          <button class="button primary" type="submit">Enqueue student</button>
+        </form>
+        <div class="button-stack">
+          <button class="button secondary" id="serve-next" type="button">Serve next student (Dequeue)</button>
+          <button class="button secondary" id="peek-next" type="button">View next student (Peek)</button>
+          <button class="button danger" id="clear-queue" type="button">Clear queue</button>
+        </div>
+        <p id="status-message" class="status" role="status" aria-live="polite">Add a student to start.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Current queue</h2>
+        <div class="stats">
+          <div class="stat"><span>Waiting</span><strong id="queue-size">0</strong></div>
+          <div class="stat"><span>Next to serve</span><strong id="next-student">None</strong></div>
+          <div class="stat"><span>Last added</span><strong id="last-student">None</strong></div>
+        </div>
+        <ol id="queue-list" class="queue-list">
+          <li class="empty">The queue is empty.</li>
+        </ol>
+        <p class="hint">Students are displayed from the front of the queue to the rear.</p>
+      </section>
+    </div>
+
+    <section class="panel concepts">
+      <h2>Queue operations demonstrated</h2>
+      <dl>
+        <dt>Enqueue</dt><dd>Adds a student to the rear of the queue.</dd>
+        <dt>Dequeue</dt><dd>Removes and serves the student at the front.</dd>
+        <dt>Peek / Front</dt><dd>Displays the next student without removing them.</dd>
+        <dt>Size</dt><dd>Counts how many students are waiting.</dd>
+        <dt>isEmpty</dt><dd>Checks whether the queue has any students.</dd>
+      </dl>
+    </section>
+
+    <section class="panel">
+      <h2>Why queues are necessary</h2>
+      <p>A student service office may receive several students at the same time. A queue keeps requests in arrival order, makes the next person to serve clear, and reduces confusion. This prototype uses a JavaScript array to demonstrate FIFO behaviour. Its data is temporary and resets when the page is refreshed; a real system could use a database for permanent storage.</p>
+    </section>
+  </main>
+  <footer><div class="container">Student Service Queue Management System · Queue (FIFO)</div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
